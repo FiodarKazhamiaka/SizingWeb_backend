@@ -1,0 +1,54 @@
+== Info: Rebuilt URL to: @test.txt/
+== Info: Could not resolve host: test.txt
+== Info: Closing connection 0
+== Info: Rebuilt URL to: http://localhost:3000/
+== Info:   Trying ::1...
+== Info: TCP_NODELAY set
+== Info: Connected to localhost (::1) port 3000 (#1)
+=> Send header, 79 bytes (0x4f)
+0000: POST / HTTP/1.1
+0011: Host: localhost:3000
+0027: User-Agent: curl/7.54.0
+0040: Accept: */*
+004d: 
+<= Recv header, 36 bytes (0x24)
+0000: HTTP/1.1 500 Internal Server Error
+<= Recv header, 23 bytes (0x17)
+0000: X-Powered-By: Express
+<= Recv header, 45 bytes (0x2d)
+0000: Content-Security-Policy: default-src 'self'
+<= Recv header, 33 bytes (0x21)
+0000: X-Content-Type-Options: nosniff
+<= Recv header, 40 bytes (0x28)
+0000: Content-Type: text/html; charset=utf-8
+<= Recv header, 22 bytes (0x16)
+0000: Content-Length: 1314
+<= Recv header, 37 bytes (0x25)
+0000: Date: Fri, 02 Nov 2018 03:03:12 GMT
+<= Recv header, 24 bytes (0x18)
+0000: Connection: keep-alive
+<= Recv header, 2 bytes (0x2)
+0000: 
+<= Recv data, 1314 bytes (0x522)
+0000: <!DOCTYPE html>.<html lang="en">.<head>.<meta charset="utf-8">.<
+0040: title>Error</title>.</head>.<body>.<pre>TypeError: Cannot read p
+0080: roperty &#39;split&#39; of undefined<br> &nbsp; &nbsp;at parseRe
+00c0: quest (/Users/fkazhami/projects/sizingweb/index.js:21:19)<br> &n
+0100: bsp; &nbsp;at app.post (/Users/fkazhami/projects/sizingweb/index
+0140: .js:47:15)<br> &nbsp; &nbsp;at Layer.handle [as handle_request] 
+0180: (/Users/fkazhami/projects/sizingweb/node_modules/express/lib/rou
+01c0: ter/layer.js:95:5)<br> &nbsp; &nbsp;at next (/Users/fkazhami/pro
+0200: jects/sizingweb/node_modules/express/lib/router/route.js:137:13)
+0240: <br> &nbsp; &nbsp;at Route.dispatch (/Users/fkazhami/projects/si
+0280: zingweb/node_modules/express/lib/router/route.js:112:3)<br> &nbs
+02c0: p; &nbsp;at Layer.handle [as handle_request] (/Users/fkazhami/pr
+0300: ojects/sizingweb/node_modules/express/lib/router/layer.js:95:5)<
+0340: br> &nbsp; &nbsp;at /Users/fkazhami/projects/sizingweb/node_modu
+0380: les/express/lib/router/index.js:281:22<br> &nbsp; &nbsp;at Funct
+03c0: ion.process_params (/Users/fkazhami/projects/sizingweb/node_modu
+0400: les/express/lib/router/index.js:335:12)<br> &nbsp; &nbsp;at next
+0440:  (/Users/fkazhami/projects/sizingweb/node_modules/express/lib/ro
+0480: uter/index.js:275:10)<br> &nbsp; &nbsp;at expressInit (/Users/fk
+04c0: azhami/projects/sizingweb/node_modules/express/lib/middleware/in
+0500: it.js:40:5)</pre>.</body>.</html>.
+== Info: Connection #1 to host localhost left intact
