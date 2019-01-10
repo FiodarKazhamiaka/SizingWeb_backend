@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-curl -X POST --header "Content-Type: application/json" -d '{"file_data": "0\n1\n2\n0.1\n3,4,5\n6,7,8"}' "http://localhost:3000/"
+curl -X POST --header "Content-Type: application/json" -d '{"file_data": "010101\n2500\n460\n0\n0.1\n0.95\n1\n1,2,3,4,5,6,7,8,9,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,5\n1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,6,7,8"}' "http://localhost:3000/"

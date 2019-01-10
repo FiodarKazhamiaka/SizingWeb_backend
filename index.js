@@ -3,6 +3,7 @@
 const express = require('express')
 const fs = require('fs')
 var bodyParser = require('body-parser');
+const execSync = require('child_process').execSync;
 
 const app = express();
 const port = 3000;
@@ -22,21 +23,33 @@ function writeToFS(id, body) {
 	console.log("wrote to file " + file_name)
 }
 
+
 // expects file where each field is separated by newlines
 function parseRequest(body) {
 	let lines = body.split("\n");
 	let trans_id = lines[0];
 	let PV_cost = lines[1];
 	let B_cost = lines[2];
-	let epsilon = lines[3];
-	let load_trace = lines[4].split(",");
-	let solar_trace = lines[5].split(",");
+	let metric = lines[3]
+	let epsilon = lines[4];
+	let confidence = lines[5];
+	let days_in_chunk = lines[6];
+	let load_trace = lines[7].split(",");
+	let solar_trace = lines[8].split(",");
+	
 	// check each value for correctness; for now, assume correct
 	//if () {
 	//}
-	writeToFS(trans_id, body)
+	writeToFS(trans_id + "_load", load_trace);
+	writeToFS(trans_id + "_solar", solar_trace);
 
-	return "success"
+	let command = "./sim " + trans_id + " " + PV_cost + " " + B_cost + " " + metric + " " + epsilon + " " + confidence + " " + days_in_chunk + " " + load_trace + " " + solar_trace;
+
+	const output = execSync(command);
+
+	var text = fs.readFileSync(request_directory + trans_id + ".size");
+
+	return text; // in the form "B PV cost"
 }
 
 //app.use(express.static('public'));
