@@ -97,29 +97,37 @@ void run_simulations(vector <double> &load, vector <double> &solar, string id, i
 }
 
 int main(int argc, char ** argv) {
-
+	cout << argv[1] << endl;
 	string outputfile = argv[1];
 	
+	cout << argv[2] << endl;
 	string inv_PV_string = argv[2];
 	PV_inv = stod(inv_PV_string);
 
+	cout << argv[3] << endl;
 	string inv_B_string = argv[3];
 	B_inv = stod(inv_B_string)*kWh_in_one_cell; // convert from per-kWh to per-cell cost
 
+	cout << argv[4] << endl;
 	string metric_string = argv[4];
 	int metric = stoi(metric_string);
 
+	cout << argv[5] << endl;
 	string epsilon_string = argv[5];
 	epsilon = stod(epsilon_string);
 
+	cout << argv[6] << endl;
 	string confidence_string = argv[6];
 	confidence = stod(confidence_string);
 
+	cout << argv[7] << endl;
 	string days_in_chunk_string = argv[7];
 	int days_in_chunk = stoi(days_in_chunk_string);
 
+	cout << argv[8] << endl;
 	string loadfile = argv[8];
 
+	cout << argv[9] << endl;
 	string solarfile = argv[9];
 
 	int number_of_chunks = 100;
@@ -127,19 +135,24 @@ int main(int argc, char ** argv) {
 	// read in the data
 
 	// read in data into vector
+	cout << "reading solarfile" << endl;
 	vector <double> solar = read_data_from_file(solarfile);
+	cout << "reading loadfile" << endl;
 	vector <double> load = read_data_from_file(loadfile);
 
+	cout << "checking for errors in solar file" << endl;
 	if (solar[0] < 0) {
 		cout << "error reading solar file " <<  solarfile << endl;
-		return 0;
-	} 
+		return 1;
+	}
+	cout << "checking for errors in load file" << endl;
 	if (load[0] < 0) {
 		cout << "error reading load file " << loadfile << endl;
-		return 0;
+		return 1;
 	}
 
+	cout << "running_simulations" << endl;
 	run_simulations(load, solar, outputfile, metric, days_in_chunk, number_of_chunks, false);
-
+	return 0;
 }
 
